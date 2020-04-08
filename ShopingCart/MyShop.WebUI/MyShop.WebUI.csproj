@@ -174,6 +174,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ProductManagerController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -242,6 +243,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\ProductManager\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -255,6 +257,24 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MyShop.core\MyShop.core.csproj">
+      <Project>{736ad4d6-7325-4eff-b1eb-423b5aab1274}</Project>
+      <Name>MyShop.core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MyShop.DataAccess.InMemorey\MyShop.DataAccess.InMemory.csproj">
+      <Project>{aacc808d-81ae-4253-b447-ae19216773a8}</Project>
+      <Name>MyShop.DataAccess.InMemory</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MyShop.DataAccess.SQL\MyShop.DataAccess.SQL.csproj">
+      <Project>{c329f7a8-436d-43be-9009-551fe80e2376}</Project>
+      <Name>MyShop.DataAccess.SQL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MyShop.services\MyShop.services.csproj">
+      <Project>{d2ec4ca8-c331-4d24-a1ed-073f0ad991b6}</Project>
+      <Name>MyShop.services</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
