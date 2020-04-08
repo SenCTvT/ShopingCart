@@ -10,10 +10,21 @@ namespace MyShop.WebUI.Controllers
 {
     public class ProductManagerController : Controller
     {
+
+        ProductRepo context;
+
+        public ProductManagerController()
+        {
+            context = new ProductRepo();
+        }
         // GET: ProductManager
         public ActionResult Index()
         {
-            return View();
+            List<Product> products = context.Collection() as List<Product>;
+            return View(products);
         }
+
+        
+
     }
 }
