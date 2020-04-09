@@ -35,16 +35,16 @@ namespace MyShop.WebUI.Controllers
             return View(viewModel);
         }
         [HttpPost]
-        public ActionResult Create(Product p)
+        public ActionResult Create(ProductCategoryViewModel c)
         {
-            
+            Debug.WriteLine(c.product.Name);
             if (!ModelState.IsValid)
             {
                 return RedirectToAction("Create");
             }
             else
-            {
-                context.Insert(p);
+            {    
+                context.Insert(c.product);
                 context.Commit();
                 return RedirectToAction("Index");
             }
@@ -59,9 +59,9 @@ namespace MyShop.WebUI.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(Product p)
+        public ActionResult Edit(ProductCategoryViewModel p)
         {
-            Product ProductToEdit = context.Find(p.Id);
+            Product ProductToEdit = context.Find(p.product.Id);
             if(ProductToEdit == null)
             {
                 return RedirectToAction("Index");
@@ -74,12 +74,12 @@ namespace MyShop.WebUI.Controllers
                 }
                 else
                 {
-                    ProductToEdit.Name = p.Name;
-                    ProductToEdit.Price = p.Price;
-                    ProductToEdit.Catagory = p.Catagory;
-                    ProductToEdit.Rating = p.Rating;
-                    ProductToEdit.Description = p.Description;
-                    ProductToEdit.Image = p.Image;
+                    ProductToEdit.Name = p.product.Name;
+                    ProductToEdit.Price = p.product.Price;
+                    ProductToEdit.Catagory = p.product.Catagory;
+                    ProductToEdit.Rating = p.product.Rating;
+                    ProductToEdit.Description = p.product.Description;
+                    ProductToEdit.Image = p.product.Image;
                     context.Commit();
                     return RedirectToAction("Index");
                 }
